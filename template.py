@@ -1,10 +1,12 @@
 """"""
 
-source_url = 
+source_url = 'SOURCE_URL'
 
-card_url = 
+card_url = None
+
 
 def answer():
+
 
 class Solution:
     def (self, *args, **kwargs):
@@ -12,8 +14,8 @@ class Solution:
 
 
 def test_case1():
-  args =
-  expected_result =
+  args =(ARG,)
+  expected_result = 
   assert expected_result == answer(*args)
 
 
