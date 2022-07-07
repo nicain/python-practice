@@ -14,7 +14,7 @@ class Solution:
 
 
 def test_case1():
-  args =(ARG,)
+  args = (ARG,)
   expected_result = 
   assert expected_result == answer(*args)
 
