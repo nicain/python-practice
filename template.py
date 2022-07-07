@@ -1,10 +1,8 @@
 """"""
 
-source_url =
+source_url = 
 
-card_url =
-
-from typing import
+card_url = 
 
 def answer():
 
