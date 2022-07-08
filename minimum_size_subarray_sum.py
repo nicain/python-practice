@@ -8,6 +8,7 @@ import math
 
 
 def answer(target, nums):
+  """Set RHS, then shrink. Repeat with new RHS."""
   li = 0
   lwm = float('inf')
   tot = 0
