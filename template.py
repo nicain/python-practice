@@ -9,14 +9,15 @@ def answer():
 
 
 class Solution:
-    def (self, *args, **kwargs):
+    def TODO_FILL_IN(self, *args, **kwargs):
         return answer(*args, **kwargs)
 
 
 def test_case1():
   args = (ARG,)
   expected_result = 
-  assert expected_result == answer(*args)
+  result = answer(*args)
+  assert expected_result == result
 
 
 if __name__ == "__main__":
