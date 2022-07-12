@@ -1,6 +1,6 @@
 """Given the root of a binary tree, return the inorder traversal of its nodes' values."""
 
-source_url = 'https://leetcode.com/problems/binary-tree-inorder-traversal/'
+source_url = 'https://www.brainscape.com/decks/11570817/cards/390021440/edit'
 
 card_url = None
 
@@ -15,7 +15,7 @@ def in_order(cnode):
 
 
 def answer(root):
-  return [val for val in in_order(root)]
+  return [val for val in in_order(root) if val]
 
 
 class Solution:
