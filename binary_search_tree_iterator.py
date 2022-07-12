@@ -11,7 +11,6 @@ source_url = 'https://leetcode.com/problems/binary-search-tree-iterator/'
 
 card_url = 'https://www.brainscape.com/decks/11570817/cards/390017989/edit'
 
-import itertools
 
 def in_order_search(cnode):
   if not cnode:
@@ -24,19 +23,24 @@ def in_order_search(cnode):
 class BSTIterator:
 
     def __init__(self, root):
-      self.search_iterator = in_order_search(root)
+      self.search = in_order_search(root)
+      self.curr = next(self.search)
+      self._set_next()
 
     def next(self) -> int:
-      return next(self.search_iterator)
+      ret_val = self.curr
+      self.curr = self._next
+      self._set_next()
+      return ret_val
 
     def hasNext(self) -> bool:
+      return self.curr is not None
+
+    def _set_next(self):
       try:
-          first = next(self.search_iterator)
-          self.search_iterator = itertools.chain(
-            [first], self.search_iterator)
-          return True
+        self._next = next(self.search)
       except StopIteration:
-          return False
+        self._next = None
 
 
 def test_case1(binary_tree_3):
