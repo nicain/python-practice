@@ -13,12 +13,12 @@ card_url = 'https://www.brainscape.com/decks/11570817/cards/390017989/edit'
 
 import itertools
 
-def in_order_search(curr_node):
-  if not curr_node:
+def in_order_search(cnode):
+  if not cnode:
     return
-  yield from in_order_search(curr_node.left)
-  yield curr_node.val 
-  yield from in_order_search(curr_node.right)
+  yield from in_order_search(cnode.left)
+  yield cnode.val 
+  yield from in_order_search(cnode.right)
 
 
 class BSTIterator:
