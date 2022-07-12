@@ -1,6 +1,6 @@
 """"""
 
-source_url = 'SOURCE_URL'
+source_url = 'TODO_1_SOURCE_URL'
 
 card_url = None
 
@@ -9,13 +9,13 @@ def answer():
 
 
 class Solution:
-    def TODO_FILL_IN(self, *args, **kwargs):
+    def TODO_2_FILL_IN(self, *args, **kwargs):
         return answer(*args, **kwargs)
 
 
 def test_case1():
-  args = (ARG,)
-  expected_result = 
+  args = (TODO_3_ARG,)
+  expected_result = TODO_4_EXPECTED
   result = answer(*args)
   assert expected_result == result
 
