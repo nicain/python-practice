@@ -2,10 +2,12 @@
 
 source_url = 'TODO_1_SOURCE_URL'
 
-card_url = None
+title = 'TODO_2_SOURCE_URL'
+
+card_url = 'TODO_3_CARD_URL'
 
 
-def answer(TODO_2_ARG_NAME):
+def answer(TODO_4_ARGs):
 
 
 class Solution:
@@ -14,8 +16,8 @@ class Solution:
 
 
 def test_case1():
-  args = (TODO_4_ARG,)
-  expected_result = TODO_5_EXPECTED
+  args = (TODO_5_ARG,)
+  expected_result = TODO_6_EXPECTED
   result = answer(*args)
   assert expected_result == result
 
