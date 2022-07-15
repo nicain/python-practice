@@ -56,13 +56,26 @@ def answer(root):
 
 def print_tree(root):
   result = answer(root)
-  spacer = ' '*(len(result)-1)
+
+  width_hwm = float('-inf')
+  for row in result:
+    for val in row:
+      width_hwm = max(width_hwm, len(val))
   cstr = ''
   for row in result:
-    cstr += spacer.join(row)+'\n'
+    new_row = []
+    for val in row:
+      if val == '':
+        ival = ' '*width_hwm
+      else:
+        missing_wspace = width_hwm-len(val)
+        padding_l = (missing_wspace//2)*" "
+        padding_r = (missing_wspace-missing_wspace//2)*" "
+        ival = padding_l+val+padding_r
+        assert len(ival) == width_hwm
+      new_row.append(ival)
+    cstr += ''.join(new_row)+'\n'
   print(cstr)
-
-
 
 
 class Solution:
