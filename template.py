@@ -4,14 +4,14 @@ source_url = 'TODO_1_SOURCE_URL'
 
 title = 'TODO_2_SOURCE_URL'
 
-card_url = 'TODO_3_CARD_URL'
+card_url = None
 
 
-def answer(TODO_4_ARGs):
+def answer(TODO_3_ARGs):
 
 
 class Solution:
-    def TODO_3_FUNCTION_NAME(self, *args, **kwargs):
+    def TODO_4_FUNCTION_NAME(self, *args, **kwargs):
         return answer(*args, **kwargs)
 
 
