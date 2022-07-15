@@ -128,78 +128,82 @@ class Robot:
     self.room[self.row][self.col] = self.clean_marker
 
 
+def answer(robot):
+
+  def probe_forward():
+    successful_move_foward = robot.move()
+    if not successful_move_foward:
+      return False
+    robot.turnLeft()
+    robot.turnLeft()
+    robot.move()
+    robot.turnRight()
+    robot.turnRight()
+    return True
+
+  def probe_left():
+    robot.turnLeft()
+    successful_move_foward = probe_forward()
+    robot.turnRight()
+    return successful_move_foward
+
+  def probe_right():
+    robot.turnRight()
+    successful_move_foward = probe_forward()
+    robot.turnLeft()
+    return successful_move_foward
+
+  def probe_backward():
+    robot.turnLeft()
+    robot.turnLeft()
+    successful_move_foward = probe_forward()
+    robot.turnRight()
+    robot.turnRight()
+    return successful_move_foward
+
+  visited = set()
+  def iterate(ri, ci):
+    nonlocal visited
+    robot.clean()
+    visited.add((ri, ci))
+    if (ri+1, ci) not in visited and probe_forward():
+      robot.move()
+      iterate(ri+1, ci)
+      robot.turnLeft()
+      robot.turnLeft()
+      robot.move()
+      robot.turnRight()
+      robot.turnRight()
+    if (ri-1, ci) not in visited and probe_backward():
+      robot.turnLeft()
+      robot.turnLeft()
+      robot.move()
+      robot.turnRight()
+      robot.turnRight()
+      iterate(ri-1, ci)
+      robot.move()
+    if (ri, ci-1) not in visited and probe_left():
+      robot.turnLeft()
+      robot.move()
+      robot.turnRight()
+      iterate(ri, ci-1)
+      robot.turnRight()
+      robot.move()
+      robot.turnLeft()
+    if (ri, ci+1) not in visited and probe_right():
+      robot.turnRight()
+      robot.move()
+      robot.turnLeft()
+      iterate(ri, ci+1)
+      robot.turnLeft()
+      robot.move()
+      robot.turnRight()
+  iterate(0, 0)
+
+
 class Solution:
-    def cleanRoom(self, robot):      
-
-      def probe_forward():
-        successful_move_foward = robot.move()
-        if not successful_move_foward:
-          return False
-        robot.turnLeft()
-        robot.turnLeft()
-        robot.move()
-        robot.turnRight()
-        robot.turnRight()
-        return True
-
-      def probe_left():
-        robot.turnLeft()
-        successful_move_foward = probe_forward()
-        robot.turnRight()
-        return successful_move_foward
-
-      def probe_right():
-        robot.turnRight()
-        successful_move_foward = probe_forward()
-        robot.turnLeft()
-        return successful_move_foward
-
-      def probe_backward():
-        robot.turnLeft()
-        robot.turnLeft()
-        successful_move_foward = probe_forward()
-        robot.turnRight()
-        robot.turnRight()
-        return successful_move_foward
-
-      visited = set()
-      def iterate(ri, ci):
-        nonlocal visited
-        robot.clean()
-        visited.add((ri, ci))
-        if (ri+1, ci) not in visited and probe_forward():
-          robot.move()
-          iterate(ri+1, ci)
-          robot.turnLeft()
-          robot.turnLeft()
-          robot.move()
-          robot.turnRight()
-          robot.turnRight()
-        if (ri-1, ci) not in visited and probe_backward():
-          robot.turnLeft()
-          robot.turnLeft()
-          robot.move()
-          robot.turnRight()
-          robot.turnRight()
-          iterate(ri-1, ci)
-          robot.move()
-        if (ri, ci-1) not in visited and probe_left():
-          robot.turnLeft()
-          robot.move()
-          robot.turnRight()
-          iterate(ri, ci-1)
-          robot.turnRight()
-          robot.move()
-          robot.turnLeft()
-        if (ri, ci+1) not in visited and probe_right():
-          robot.turnRight()
-          robot.move()
-          robot.turnLeft()
-          iterate(ri, ci+1)
-          robot.turnLeft()
-          robot.move()
-          robot.turnRight()
-      iterate(0, 0)
+  def cleanRoom(self, *args, **kwargs):
+    return answer(*args, **kwargs)
 
 
 def room_is_clean(room):

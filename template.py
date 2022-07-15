@@ -11,8 +11,8 @@ def answer(TODO_3_ARGs):
 
 
 class Solution:
-    def TODO_4_FUNCTION_NAME(self, *args, **kwargs):
-        return answer(*args, **kwargs)
+  def TODO_4_FUNCTION_NAME(self, *args, **kwargs):
+    return answer(*args, **kwargs)
 
 
 def test_case1():
