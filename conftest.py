@@ -44,3 +44,22 @@ def binary_tree_6():
 def binary_tree_7():
   values = [4,1,6,0,2,5,7,None,None,None,3,None,None,None,8]
   return values_to_binary_tree_iterative(values)
+
+
+@pytest.fixture
+def binary_tree_8():
+  values = [30,36,21,36,35,26,15,None,None,None,33,None,None,None,8]
+  return values_to_binary_tree_iterative(values)
+
+
+@pytest.fixture
+def binary_tree_9():
+  values = [1,2,3,None,4]
+  return values_to_binary_tree_iterative(values)
+
+
+@pytest.fixture
+def binary_tree_10():
+  values = [1,2]
+  return values_to_binary_tree_iterative(values)
+
