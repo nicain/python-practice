@@ -38,3 +38,9 @@ def binary_tree_5():
 def binary_tree_6():
   values = [1,0,48,None,None,12,49]
   return values_to_binary_tree_iterative(values)
+
+
+@pytest.fixture
+def binary_tree_7():
+  values = [4,1,6,0,2,5,7,None,None,None,3,None,None,None,8]
+  return values_to_binary_tree_iterative(values)
