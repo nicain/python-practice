@@ -81,3 +81,9 @@ def binary_tree_13():
   values = [3,9,20,None,None,15,7]
   return values_to_binary_tree_iterative(values)
 
+
+@pytest.fixture
+def binary_tree_14():
+  values = [3,9,20,15,7]
+  return values_to_binary_tree_iterative(values)
+
