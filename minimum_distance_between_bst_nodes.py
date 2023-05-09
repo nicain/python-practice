@@ -1,6 +1,14 @@
-"""Given the root of a Binary Search Tree (BST), return the minimum difference between the values of any two different nodes in the tree."""
+"""
+Given the root of a Binary Search Tree (BST)
+return the minimum difference between the 
+values of any two different nodes in the 
+tree.
+"""
 
-source_url = 'https://leetcode.com/problems/minimum-distance-between-bst-nodes/'
+source_url = (
+  'https://leetcode.com/problems/'
+  'minimum-distance-between-bst-nodes/'
+)
 
 card_url = None
 
@@ -22,8 +30,8 @@ def answer(root):
   
 
 class Solution:
-    def minDiffInBST(self, *args, **kwargs):
-        return answer(*args, **kwargs)
+  def minDiffInBST(self, *args, **kwargs):
+    return answer(*args, **kwargs)
 
 
 def test_case1(binary_tree_5):

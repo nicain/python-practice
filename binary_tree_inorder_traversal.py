@@ -1,13 +1,18 @@
-"""Given the root of a binary tree, return the inorder traversal of its nodes' values."""
+"""
+Given the root of a binary tree, return the 
+inorder traversal of its nodes' values.
+"""
 
-source_url = 'https://www.brainscape.com/decks/11570817/cards/390021440/edit'
+source_url = (
+  'https://leetcode.com/problems/'
+  'binary-tree-inorder-traversal/'
+)
 
 card_url = None
 
 
 def in_order(cnode):
-  if not cnode:
-    return None
+  if not cnode: return None
   
   yield from in_order(cnode.left)
   yield cnode.val
@@ -15,12 +20,18 @@ def in_order(cnode):
 
 
 def answer(root):
-  return [val for val in in_order(root) if val]
+  return [
+    val for val in in_order(root) if val
+  ]
 
 
 class Solution:
-    def inorderTraversal(self, *args, **kwargs):
-        return answer(*args, **kwargs)
+  def inorderTraversal(
+    self,
+    *args,
+    **kwargs,
+  ):
+    return answer(*args, **kwargs)
 
 
 def test_case1(binary_tree_4):
