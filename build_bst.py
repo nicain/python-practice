@@ -5,6 +5,7 @@ class Node:
     self.left = left
     self.right = right
 
+# Option 1:
 def add_node(cnode, new_node):
   if new_node.val < cnode.val:
     if cnode.left:
@@ -17,6 +18,15 @@ def add_node(cnode, new_node):
       return add_node(cnode.right, new_node)
     else:
       cnode.right = new_node
+
+# Option 2:
+def add_node(cnode, new_node):
+  if not cnode: return new_node
+  if new_node.val < cnode.val:
+    cnode.left = add_node(cnode.left, new_node)
+  else:
+    cnode.right = add_node(cnode.right, new_node)
+  return cnode
     
 
 root = None

@@ -22,29 +22,44 @@ title = (
 )
 
 
-def answer(root, to_delete):
+def get_new_roots(root, to_delete):
   to_delete = set(to_delete)
-  results = []
-  if root.val not in to_delete:
-    results.append(root)
-  prune_list = []
-  def delete(cnode, parent=None, side=None):
-    nonlocal results, to_delete, prune_list
+  new_roots = set()
+
+  def traverse(cnode, parent=None):
+    nonlocal to_delete, new_roots
     if not cnode: return
 
-    if cnode.val in to_delete:
-      for x in [cnode.left, cnode.right]:
-        if x and x.val not in to_delete:
-          results.append(x)
-      if parent:
-        prune_list.append((parent, side))
+    if (parent.val in to_delete) and (cnode.val not in to_delete):
+      new_roots.add(cnode)
 
-    delete(cnode.left, cnode, 'L')
-    delete(cnode.right, cnode, 'R')
-  delete(root)
+    traverse(cnode.left, parent=cnode)
+    traverse(cnode.right, parent=cnode)
+  traverse(root.left, root)
+  traverse(root.right, root)
 
-  for parent, side in prune_list:
-    if side == 'L': parent.left = None
-    elif side == 'R': parent.right = None
+  if root.val not in to_delete:
+    new_roots.add(root)
 
-  return results
+  return new_roots
+
+def answer(root, to_delete):
+
+  new_roots = get_new_roots(root, to_delete)
+
+  def traverse_and_prune(cnode):
+    nonlocal to_delete, new_roots
+    if not cnode: return
+
+    if (cnode.left is not None) and (cnode.left.val in to_delete):
+      cnode.left = None
+    if (cnode.right is not None) and (cnode.right.val in to_delete):
+      cnode.right = None
+
+    traverse_and_prune(cnode.left)
+    traverse_and_prune(cnode.right)
+
+  for new_root in new_roots:
+    traverse_and_prune(new_root)
+
+  return new_roots

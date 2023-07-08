@@ -45,17 +45,17 @@ def search(cnode, start, end):
 
 class MyCalendar:
 
-    def __init__(self):
-      self.root = None
-        
-
-    def book(self, start, end):
-      if not self.root:
-        self.root = Node(start, end)
-        return True
+  def __init__(self):
+    self.root = None
       
-      if search(self.root, start, end):
-        return False
 
-      add_node(self.root, Node(start, end))
+  def book(self, start, end):
+    if not self.root:
+      self.root = Node(start, end)
       return True
+    
+    if search(self.root, start, end):
+      return False
+
+    add_node(self.root, Node(start, end))
+    return True
