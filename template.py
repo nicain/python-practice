@@ -4,8 +4,6 @@ source_url = 'TODO_1_SOURCE_URL'
 
 title = 'TODO_2_SOURCE_URL'
 
-card_url = None
-
 
 def answer(TODO_3_ARGs):
 
